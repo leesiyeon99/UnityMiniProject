@@ -24,7 +24,7 @@ public class PlayerController : MonoBehaviour
     private int jumpHesh = Animator.StringToHash("Jump");
     private int fallHesh = Animator.StringToHash("Fall");
 
-    public int gemCount = 0;
+    public bool canMove;
 
     private void Start()
     {
@@ -33,6 +33,8 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
+        if (!canMove) return;
+
         x = Input.GetAxisRaw("Horizontal");
 
         if (Input.GetKeyDown(KeyCode.Space))
@@ -48,7 +50,7 @@ public class PlayerController : MonoBehaviour
         Move();
     }
 
-    private void Move()
+    public void Move()
     {
         rigid.AddForce(x * movePower * Vector2.right, ForceMode2D.Force);
         if (rigid.velocity.x > maxMoveSpeed)
@@ -70,7 +72,7 @@ public class PlayerController : MonoBehaviour
 
     }
 
-    private void Jump()
+    public  void Jump()
     {
         if (!isGrounded) return;
         isGrounded = false;
