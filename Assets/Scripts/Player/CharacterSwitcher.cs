@@ -12,6 +12,12 @@ public class CharacterSwitcher : MonoBehaviour
 
     private void Start()
     {
+        player1 = GameObject.FindGameObjectWithTag("Player1").GetComponent<PlayerController>();
+        player2 = GameObject.FindGameObjectWithTag("Player2").GetComponent<PlayerController>();
+        virtualCamera1 = player1.GetComponentInChildren<CinemachineVirtualCamera>();
+        virtualCamera2 = player2.GetComponentInChildren<CinemachineVirtualCamera>();
+
+
         currentPlayer = player1; 
         player1.canMove = true;
         player2.canMove = false;
