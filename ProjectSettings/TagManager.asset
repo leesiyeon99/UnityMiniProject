@@ -7,6 +7,7 @@ TagManager:
   - RedWater
   - BlueWater
   - Ground
+  - GreenWater
   layers:
   - Default
   - TransparentFX
@@ -43,4 +44,13 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: WaterGound
+    uniqueID: 3730660527
+    locked: 0
+  - name: Water
+    uniqueID: 3028654997
+    locked: 0
+  - name: Ground
+    uniqueID: 519094809
     locked: 0
