@@ -42,7 +42,7 @@ public class PlayerController : MonoBehaviour
             Jump();
         }
         GroundCheck();
-        //AnimatorPlay();
+        AnimatorPlay();
     }
 
     private void FixedUpdate()
@@ -121,6 +121,10 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.CompareTag("BlueWater"))
         {
             Debug.Log("파란물에 닿았습니다.");
+        }
+        if (collision.gameObject.CompareTag("GreenWater"))
+        {
+            Debug.Log("초록물에 닿았습니다.");
         }
     }
 

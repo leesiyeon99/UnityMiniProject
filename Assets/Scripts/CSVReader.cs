@@ -13,6 +13,9 @@ public class CSVReader : MonoBehaviour
     public GameObject lBlueWaterPrefab;
     public GameObject blueWaterPrefab;
     public GameObject rBlueWaterPrefab;
+    public GameObject lGreenWaterPrefab;
+    public GameObject greenWaterPrefab;
+    public GameObject rGreenWaterPrefab;
     public GameObject player1;
     public GameObject player2;
 
@@ -58,6 +61,15 @@ public class CSVReader : MonoBehaviour
                         break;
                     case "Rbluewater":
                         tilePrefab = rBlueWaterPrefab;
+                        break;
+                    case "Lgreenwater":
+                        tilePrefab = lGreenWaterPrefab;
+                        break;
+                    case "greenwater":
+                        tilePrefab = greenWaterPrefab;
+                        break;
+                    case "Rgreenwater":
+                        tilePrefab = rGreenWaterPrefab;
                         break;
                     case "player1":
                         tilePrefab = player1;
