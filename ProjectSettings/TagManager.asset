@@ -10,6 +10,8 @@ TagManager:
   - GreenWater
   - Player1
   - Player2
+  - BlueLever
+  - RedLever
   layers:
   - Default
   - TransparentFX

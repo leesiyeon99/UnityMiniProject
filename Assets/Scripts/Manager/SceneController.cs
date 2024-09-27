@@ -15,4 +15,19 @@ public class SceneController : MonoBehaviour
         Application.Quit();
         UnityEditor.EditorApplication.isPlaying = false;
     }
+
+    public void LoadStageScene()
+    {
+        LoadScene("StageScene");
+    }
+
+    public void LoadTitleScene()
+    {
+        LoadScene("TitleScene");
+    }
+
+    public void LoadGameScene()
+    {
+        LoadScene("GameScene");
+    }
 }
