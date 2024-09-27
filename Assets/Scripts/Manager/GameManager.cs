@@ -3,7 +3,8 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
-    private SceneController sceneController;
+    public static SceneController sceneController { get; private set; }
+    public static AudioManager audioManager { get; private set; }
 
     private void Awake()
     {
@@ -15,9 +16,11 @@ public class GameManager : MonoBehaviour
         {
             Instance = this;
             DontDestroyOnLoad(gameObject);
+
+            sceneController = new SceneController();
+            audioManager = new AudioManager();
         }
 
-        sceneController = new SceneController();
     }
 
     public void LoadStageScene()

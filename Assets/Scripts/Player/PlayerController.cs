@@ -26,6 +26,8 @@ public class PlayerController : MonoBehaviour
 
     public bool canMove;
 
+    [SerializeField] AudioClip jumpAudio;
+
     private void Start()
     {
         curAniHash = idleHesh;
@@ -77,6 +79,7 @@ public class PlayerController : MonoBehaviour
         if (!isGrounded) return;
         isGrounded = false;
         rigid.AddForce(Vector2.up * jumpPower, ForceMode2D.Impulse);
+        AudioManager.Instance.PlaySFX(0);
     }
 
     private void GroundCheck()
