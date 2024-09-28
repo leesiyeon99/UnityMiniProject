@@ -25,7 +25,7 @@ public class Platform : MonoBehaviour
         {
             platformObject.transform.position += Vector3.up * riseSpeed * Time.deltaTime;
 
-            if (platformObject.transform.position.y >= riseHeight)
+            if (platformObject.transform.position.y >= initialPosition.y + riseHeight)
             {
                 isRising = false;
                 StartCoroutine(WaitAndLower());

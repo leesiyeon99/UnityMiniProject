@@ -338,4 +338,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   platformObject: {fileID: 1095864712576546575}
   riseSpeed: 2
-  riseHeight: -9.47
+  riseHeight: 3
