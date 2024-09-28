@@ -1,19 +1,44 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class RedLever : MonoBehaviour
 {
     [SerializeField] Animator animator;
-    [SerializeField] Platform platform;
+    [SerializeField] List<GameObject> yPlatforms;
+
+    private void Start()
+    {
+        GameObject[] platformObjects = GameObject.FindGameObjectsWithTag("rPlatform");
+        yPlatforms.AddRange(platformObjects);
+    }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Player1") && !platform.IsRising && !platform.IsLowering)
+        if ((collision.gameObject.CompareTag("Player1") && CanActivate()))
         {
             animator.Play("LeverOn");
-            platform.Rise();
+            foreach (var platformObject in yPlatforms)
+            {
+                Platform platform = platformObject.GetComponent<Platform>();
+                if (platform != null)
+                {
+                    platform.Rise();
+                }
+            }
             StartCoroutine(LeverCoroutine());
         }
+    }
+
+    private bool CanActivate()
+    {
+        foreach (var platformObject in yPlatforms)
+        {
+            Platform platform = platformObject.GetComponent<Platform>();
+            if (platform != null && (platform.IsRising || platform.IsLowering))
+                return false;
+        }
+        return true;
     }
 
     IEnumerator LeverCoroutine()

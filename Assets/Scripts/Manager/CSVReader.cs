@@ -1,29 +1,73 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class CSVReader : MonoBehaviour
 {
     public TextAsset csvFile;
-    public GameObject wallPrefab;
-    public GameObject groundPrefab;
-    public GameObject lRedWaterPrefab;
-    public GameObject redWaterPrefab;
-    public GameObject rRedWaterPrefab;
-    public GameObject lBlueWaterPrefab;
-    public GameObject blueWaterPrefab;
-    public GameObject rBlueWaterPrefab;
-    public GameObject lGreenWaterPrefab;
-    public GameObject greenWaterPrefab;
-    public GameObject rGreenWaterPrefab;
-    public GameObject dHalfGround;
-    public GameObject uHalfGround;
-    public GameObject player1;
-    public GameObject player2;
+
+    [Header("Grounds")]
+    public GameObject wallPrefab; // 벽
+    public GameObject groundPrefab; // 바닥
+    public GameObject underGroundPrefab; // 아래 바닥
+    public GameObject dHalfGround; // 아래 반 바닥
+    public GameObject uHalfGround; // 위 반 바닥
+    public GameObject mHalfGround; // 가운데 반 바닥
+
+    [Header("WaterGrounds")]
+    public GameObject lRedWaterPrefab; // 왼쪽 빨간 물 
+    public GameObject redWaterPrefab; // 빨간 물 
+    public GameObject rRedWaterPrefab; // 오른쪽 빨간 물 
+    public GameObject lBlueWaterPrefab; // 왼쪽 파란 물
+    public GameObject blueWaterPrefab; // 파란 물
+    public GameObject rBlueWaterPrefab; // 오른쪽 파란 물 
+    public GameObject lGreenWaterPrefab; // 왼쪽 초록 물 
+    public GameObject greenWaterPrefab; // 초록 물
+    public GameObject rGreenWaterPrefab; // 오른쪽 초록 물 
+
+    [Header("Players")]
+    public GameObject player1; // 플레이어1
+    public GameObject player2; // 플레이어2
+
+    [Header("Items")]
+    public GameObject blever; // 블루 레버
+    public GameObject rlever; // 빨간 레버
+    public GameObject plever; // 보라색 레버
+    public GameObject platform; // 레버와 상호작용하는 바닥
+
+    private Dictionary<string, GameObject> tileDictionary;
 
     private void Start()
     {
-        GenerateMap();
+        Init(); 
+        GenerateMap(); 
+    }
+
+    private void Init()
+    {
+        tileDictionary = new Dictionary<string, GameObject>
+        {
+            { "wall", wallPrefab },
+            { "ground", groundPrefab },
+            { "uground", underGroundPrefab },
+            { "dhalfground", dHalfGround },
+            { "uhalfground", uHalfGround },
+            { "mhalfground", mHalfGround },
+            { "Lredwater", lRedWaterPrefab },
+            { "redwater", redWaterPrefab },
+            { "Rredwater", rRedWaterPrefab },
+            { "Lbluewater", lBlueWaterPrefab },
+            { "bluewater", blueWaterPrefab },
+            { "Rbluewater", rBlueWaterPrefab },
+            { "Lgreenwater", lGreenWaterPrefab },
+            { "greenwater", greenWaterPrefab },
+            { "Rgreenwater", rGreenWaterPrefab },
+            { "player1", player1 },
+            { "player2", player2 },
+            { "blever", blever },
+            { "rlever", rlever },
+            { "plever", plever },
+            { "platform", platform },
+        };
     }
 
     private void GenerateMap()
@@ -32,66 +76,20 @@ public class CSVReader : MonoBehaviour
 
         for (int y = 0; y < lines.Length; y++)
         {
-            string[] tiles = lines[y].Split(',');
+            CreateTiles(lines[y], -y);
+        }
+    }
 
-            for (int x = 0; x < tiles.Length; x++)
+    private void CreateTiles(string line, float y)
+    {
+        string[] tiles = line.Split(',');
+
+        for (int x = 0; x < tiles.Length; x++)
+        {
+            string tileType = tiles[x].Trim();
+            if (tileDictionary.TryGetValue(tileType, out GameObject tilePrefab)) 
             {
-                GameObject tilePrefab = null;
-
-                switch (tiles[x].Trim())
-                {
-                    case "wall":
-                        tilePrefab = wallPrefab;
-                        break;
-                    case "ground":
-                        tilePrefab = groundPrefab;
-                        break;
-                    case "Lredwater":
-                        tilePrefab = lRedWaterPrefab;
-                        break;
-                    case "redwater":
-                        tilePrefab = redWaterPrefab;
-                        break;
-                    case "Rredwater":
-                        tilePrefab = rRedWaterPrefab;
-                        break;
-                    case "Lbluewater":
-                        tilePrefab = lBlueWaterPrefab;
-                        break;
-                    case "bluewater":
-                        tilePrefab = blueWaterPrefab;
-                        break;
-                    case "Rbluewater":
-                        tilePrefab = rBlueWaterPrefab;
-                        break;
-                    case "Lgreenwater":
-                        tilePrefab = lGreenWaterPrefab;
-                        break;
-                    case "greenwater":
-                        tilePrefab = greenWaterPrefab;
-                        break;
-                    case "Rgreenwater":
-                        tilePrefab = rGreenWaterPrefab;
-                        break;
-                    case "player1":
-                        tilePrefab = player1;
-                        break;
-                    case "player2":
-                        tilePrefab = player2;
-                        break;
-                    case "dhalfground":
-                        tilePrefab = dHalfGround;
-                        break;
-                    case "uhalfground":
-                        tilePrefab = uHalfGround;
-                        break;
-                }
-
-                if (tilePrefab != null)
-                {
-                    GameObject tileObject = Instantiate(tilePrefab, new Vector3(x, -y, 0), Quaternion.identity);
-                    tileObject.transform.parent = this.transform;
-                }
+                Instantiate(tilePrefab, new Vector3(x, y, 0), Quaternion.identity, this.transform);
             }
         }
     }

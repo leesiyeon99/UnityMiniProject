@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class Platform : MonoBehaviour
 {
-    [SerializeField] GameObject platformObject;
+    [SerializeField] GameObject platform;
     public float riseSpeed = 2f;
     public float riseHeight;
 
@@ -11,9 +11,10 @@ public class Platform : MonoBehaviour
     private bool isRising = false;
     private bool isLowering = false;
 
+
     private void Start()
     {
-        initialPosition = platformObject.transform.position;
+        initialPosition = platform.transform.position;
     }
 
     public bool IsRising => isRising;
@@ -23,9 +24,9 @@ public class Platform : MonoBehaviour
     {
         if (isRising)
         {
-            platformObject.transform.position += Vector3.up * riseSpeed * Time.deltaTime;
+            platform.transform.position += Vector3.up * riseSpeed * Time.deltaTime;
 
-            if (platformObject.transform.position.y >= initialPosition.y + riseHeight)
+            if (platform.transform.position.y >= initialPosition.y + riseHeight)
             {
                 isRising = false;
                 StartCoroutine(WaitAndLower());
@@ -43,13 +44,13 @@ public class Platform : MonoBehaviour
         yield return new WaitForSeconds(1f);
 
         isLowering = true;
-        while (platformObject.transform.position.y > initialPosition.y)
+        while (platform.transform.position.y > initialPosition.y)
         {
-            platformObject.transform.position -= Vector3.up * riseSpeed * Time.deltaTime;
+            platform.transform.position -= Vector3.up * riseSpeed * Time.deltaTime;
             yield return null;
         }
 
-        platformObject.transform.position = initialPosition;
+        platform.transform.position = initialPosition;
         isLowering = false;
     }
 }
