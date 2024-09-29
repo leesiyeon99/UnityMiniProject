@@ -12,7 +12,17 @@ TagManager:
   - Player2
   - BlueLever
   - RedLever
+  - yPlatform
+  - bPlatform
+  - rPlatform
   - Wall
+  - BlueGem
+  - RedGem
+  - Switch
+  - DownPlatform
+  - Box
+  - Player1Active
+  - Player2Active
   layers:
   - Default
   - TransparentFX
@@ -58,4 +68,7 @@ TagManager:
     locked: 0
   - name: Ground
     uniqueID: 519094809
+    locked: 0
+  - name: player
+    uniqueID: 3891840161
     locked: 0

@@ -6,23 +6,23 @@ public class CSVReader : MonoBehaviour
     public TextAsset csvFile;
 
     [Header("Grounds")]
-    public GameObject wallPrefab; // 벽
-    public GameObject groundPrefab; // 바닥
-    public GameObject underGroundPrefab; // 아래 바닥
+    public GameObject wall; // 벽
+    public GameObject ground; // 바닥
+    public GameObject underGround; // 아래 바닥
     public GameObject dHalfGround; // 아래 반 바닥
     public GameObject uHalfGround; // 위 반 바닥
     public GameObject mHalfGround; // 가운데 반 바닥
 
     [Header("WaterGrounds")]
-    public GameObject lRedWaterPrefab; // 왼쪽 빨간 물 
-    public GameObject redWaterPrefab; // 빨간 물 
-    public GameObject rRedWaterPrefab; // 오른쪽 빨간 물 
-    public GameObject lBlueWaterPrefab; // 왼쪽 파란 물
-    public GameObject blueWaterPrefab; // 파란 물
-    public GameObject rBlueWaterPrefab; // 오른쪽 파란 물 
-    public GameObject lGreenWaterPrefab; // 왼쪽 초록 물 
-    public GameObject greenWaterPrefab; // 초록 물
-    public GameObject rGreenWaterPrefab; // 오른쪽 초록 물 
+    public GameObject lRedWater; // 왼쪽 빨간 물 
+    public GameObject redWater; // 빨간 물 
+    public GameObject rRedWater; // 오른쪽 빨간 물 
+    public GameObject lBlueWater; // 왼쪽 파란 물
+    public GameObject blueWater; // 파란 물
+    public GameObject rBlueWater; // 오른쪽 파란 물 
+    public GameObject lGreenWater; // 왼쪽 초록 물 
+    public GameObject greenWater; // 초록 물
+    public GameObject rGreenWater; // 오른쪽 초록 물 
 
     [Header("Players")]
     public GameObject player1; // 플레이어1
@@ -31,8 +31,17 @@ public class CSVReader : MonoBehaviour
     [Header("Items")]
     public GameObject blever; // 블루 레버
     public GameObject rlever; // 빨간 레버
-    public GameObject plever; // 보라색 레버
-    public GameObject platform; // 레버와 상호작용하는 바닥
+    public GameObject ylever; // 노란 레버
+    public GameObject yPlatform; // 레버와 상호작용하는 노란바닥
+    public GameObject bPlatform; // 레버와 상호작용하는 파란바닥
+    public GameObject rPlatform; // 레버와 상호작용하는 빨간바닥
+    public GameObject downSwitch; //누르면 아래로 움직이는 바닥 스위치
+    public GameObject downPlatform; //누르면 아래로 움직이는 바닥
+    public GameObject box;
+
+    [Header("Gems")]
+    public GameObject blueGem;
+    public GameObject redGem;
 
     private Dictionary<string, GameObject> tileDictionary;
 
@@ -46,27 +55,34 @@ public class CSVReader : MonoBehaviour
     {
         tileDictionary = new Dictionary<string, GameObject>
         {
-            { "wall", wallPrefab },
-            { "ground", groundPrefab },
-            { "uground", underGroundPrefab },
+            { "wall", wall },
+            { "ground", ground },
+            { "uground", underGround },
             { "dhalfground", dHalfGround },
             { "uhalfground", uHalfGround },
             { "mhalfground", mHalfGround },
-            { "Lredwater", lRedWaterPrefab },
-            { "redwater", redWaterPrefab },
-            { "Rredwater", rRedWaterPrefab },
-            { "Lbluewater", lBlueWaterPrefab },
-            { "bluewater", blueWaterPrefab },
-            { "Rbluewater", rBlueWaterPrefab },
-            { "Lgreenwater", lGreenWaterPrefab },
-            { "greenwater", greenWaterPrefab },
-            { "Rgreenwater", rGreenWaterPrefab },
+            { "Lredwater", lRedWater },
+            { "redwater", redWater },
+            { "Rredwater", rRedWater },
+            { "Lbluewater", lBlueWater },
+            { "bluewater", blueWater },
+            { "Rbluewater", rBlueWater },
+            { "Lgreenwater", lGreenWater },
+            { "greenwater", greenWater },
+            { "Rgreenwater", rGreenWater },
             { "player1", player1 },
             { "player2", player2 },
             { "blever", blever },
             { "rlever", rlever },
-            { "plever", plever },
-            { "platform", platform },
+            { "ylever", ylever },
+            { "yPlatform", yPlatform },
+            { "rPlatform", rPlatform },
+            { "bPlatform", bPlatform },
+            { "blueGem", blueGem },
+            { "redGem", redGem },
+            { "downSwitch", downSwitch },
+            { "downPlatform", downPlatform },
+            { "box", box },
         };
     }
 

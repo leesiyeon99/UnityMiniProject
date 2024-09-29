@@ -23,6 +23,7 @@ public class PlayerController : MonoBehaviour
     private int jumpHesh = Animator.StringToHash("Jump");
     private int fallHesh = Animator.StringToHash("Fall");
 
+
     private void Awake()
     {
         states[(int)State.Idle] = new IdleState(this);
@@ -90,9 +91,9 @@ public class PlayerController : MonoBehaviour
     private class RunState : PlayerState
     {
         public RunState(PlayerController player) : base(player) { }
-        public override void Enter() 
+        public override void Enter()
         {
-            player.animator.Play(player.runHesh); 
+            player.animator.Play(player.runHesh);
         }
         public override void Update()
         {
@@ -105,6 +106,10 @@ public class PlayerController : MonoBehaviour
             else if (Input.GetKeyDown(KeyCode.Space) && player.isGrounded)
             {
                 player.ChangeState(State.Jump);
+            }
+            if (Mathf.Abs(player.x) < 0.01f && Mathf.Abs(player.rigid.velocity.x) > 0) //플레이어 멈출 때 마찰력 적어지게
+            {
+                player.rigid.velocity = new Vector2(player.rigid.velocity.x * 0.3f, player.rigid.velocity.y);
             }
         }
 
@@ -153,9 +158,9 @@ public class PlayerController : MonoBehaviour
     private class FallState : PlayerState
     {
         public FallState(PlayerController player) : base(player) { }
-        public override void Enter() 
-        { 
-            player.animator.Play(player.fallHesh); 
+        public override void Enter()
+        {
+            player.animator.Play(player.fallHesh);
         }
         public override void Update()
         {
@@ -174,17 +179,35 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("RedWater"))
+        if (collision.gameObject.CompareTag("RedWater") && this.gameObject.tag == "Player2")
         {
             Debug.Log("빨간물에 닿았습니다.");
+            GameManager.Instance.GameOver();
+            this.gameObject.SetActive(false);
         }
-        if (collision.gameObject.CompareTag("BlueWater"))
+        if (collision.gameObject.CompareTag("BlueWater") && this.gameObject.tag == "Player1")
         {
             Debug.Log("파란물에 닿았습니다.");
+            GameManager.Instance.GameOver();
+            this.gameObject.SetActive(false);
         }
-        if (collision.gameObject.CompareTag("GreenWater"))
+        if (collision.gameObject.CompareTag("GreenWater") && (this.gameObject.tag == "Player2" || this.gameObject.tag == "Player1"))
         {
             Debug.Log("초록물에 닿았습니다.");
+            GameManager.Instance.GameOver();
+            this.gameObject.SetActive(false);
+        }
+        if (collision.gameObject.CompareTag("RedGem") && this.gameObject.tag == "Player1")
+        {
+            Debug.Log("빨간보석 +1");
+            collision.gameObject.SetActive(false);
+            GameManager.Instance.RedGemScore();
+        }
+        if (collision.gameObject.CompareTag("BlueGem") && this.gameObject.tag == "Player2")
+        {
+            Debug.Log("파란보석 +1");
+            collision.gameObject.SetActive(false);
+            GameManager.Instance.BlueGemScore();
         }
     }
 }
