@@ -17,5 +17,6 @@ public class BlueGemScoreUI : MonoBehaviour
     {
         blueGemCount++;
         redGemScore.text = $"{blueGemCount}";
+        GameManager.Instance.BlueGemScore();
     }
 }

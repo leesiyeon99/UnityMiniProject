@@ -17,5 +17,6 @@ public class RedGemScoreUI : MonoBehaviour
     {
         redGemCount++;
         redGemScore.text = $"{redGemCount}";
+        GameManager.Instance.RedGemScore();
     }
 }

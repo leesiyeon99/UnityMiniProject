@@ -118,7 +118,8 @@ public class GameManager : MonoBehaviour
 
     private void CheckGameClear()
     {
-        if (player1Goal && player2Goal)
+        // 플레이어의 각각에 맞는 색 위의 문과 충돌 중 && 스테이지에 있는 모든 보석 다 먹기
+        if (player1Goal && player2Goal && redGemCount == 3 && blueGemCount == 3)
         {
             GameClear();
         }
