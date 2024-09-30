@@ -233,7 +233,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 1712971596319981802}
-  moveDistance: 4
+  moveDistance: 3
   moveSpeed: 0.5
   downPlatforms: []
 --- !u!50 &1712971596319981800

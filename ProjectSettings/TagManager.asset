@@ -23,6 +23,9 @@ TagManager:
   - Box
   - Player1Active
   - Player2Active
+  - HitBox
+  - RedGoal
+  - BlueGoal
   layers:
   - Default
   - TransparentFX
@@ -71,4 +74,7 @@ TagManager:
     locked: 0
   - name: player
     uniqueID: 3891840161
+    locked: 0
+  - name: ForeGround
+    uniqueID: 3485952999
     locked: 0

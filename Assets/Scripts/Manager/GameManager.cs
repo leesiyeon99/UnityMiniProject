@@ -2,7 +2,7 @@ using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UIElements;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -13,6 +13,10 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameState curState;
     [SerializeField] TextMeshProUGUI redGemScore;
     [SerializeField] TextMeshProUGUI blueGemScore;
+    [SerializeField] Image clearImage;
+
+    private bool player1Goal = false;
+    private bool player2Goal = false;
 
     int redGemCount = 0;
     int blueGemCount = 0;
@@ -33,6 +37,7 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         curState = GameState.Ready;
+        clearImage.gameObject.SetActive(false);
     }
 
 
@@ -49,11 +54,25 @@ public class GameManager : MonoBehaviour
         }
         else if (curState == GameState.GameClear)
         {
-            SceneController.Instance.LoadStageScene();
+            clearImage.gameObject.SetActive(true);
+            StartCoroutine(GameClearRoutine());
+            curState = GameState.Ready;
         }
+
+        Score();
+    }
+
+    IEnumerator GameClearRoutine()
+    {
+        yield return new WaitForSeconds(1.5f);
+        SceneController.Instance.LoadStageScene();
+
+    }
+    private void Score()
+    { 
+        if (redGemScore == null || blueGemScore == null ) return;
         redGemScore.text = $"{redGemCount}";
         blueGemScore.text = $"{blueGemCount}";
-
     }
 
     public void GameStart()
@@ -68,7 +87,7 @@ public class GameManager : MonoBehaviour
 
     public void GameClear()
     {
-        curState = GameState.GameOver;
+        curState = GameState.GameClear;
     }
 
     public int RedGemScore()
@@ -81,5 +100,25 @@ public class GameManager : MonoBehaviour
     {
         blueGemCount++;
         return blueGemCount;
+    }
+
+    public void SetPlayer1Goal(bool reached)
+    {
+        player1Goal = reached;
+        CheckGameClear(); 
+    }
+
+    public void SetPlayer2Goal(bool reached)
+    {
+        player2Goal = reached;
+        CheckGameClear(); 
+    }
+
+    private void CheckGameClear()
+    {
+        if (player1Goal && player2Goal)
+        {
+            GameClear();
+        }
     }
 }

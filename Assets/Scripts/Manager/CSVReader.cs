@@ -43,6 +43,10 @@ public class CSVReader : MonoBehaviour
     public GameObject blueGem;
     public GameObject redGem;
 
+    [Header("Goals")]
+    public GameObject redGoal;
+    public GameObject blueGoal;
+
     private Dictionary<string, GameObject> tileDictionary;
 
     private void Start()
@@ -83,6 +87,8 @@ public class CSVReader : MonoBehaviour
             { "downSwitch", downSwitch },
             { "downPlatform", downPlatform },
             { "box", box },
+            { "redGoal", redGoal },
+            { "blueGoal", blueGoal },
         };
     }
 

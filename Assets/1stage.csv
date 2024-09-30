@@ -1,6 +1,6 @@
 wall,wall,wall,wall,wall,wall,wall,wall,wall,wall,wall,wall,wall,wall,wall,wall,wall,wall,wall,wall,wall,wall,wall,wall,wall,wall,wall,wall,wall,wall,wall
 wall,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,wall
-wall,,,,,,,,,,redGem,,,,,,,,,,,,,,,,,,,,wall
+wall,,,,,,,,,,redGem,,,,,,,,,,,,,,redGoal,,,blueGoal,,,wall
 wall,blueGem,,,,,,,dhalfground,dhalfground,ground,ground,ground,ground,ground,ground,ground,ground,ground,ground,ground,ground,ground,ground,ground,ground,ground,ground,ground,ground,wall
 wall,ground,ground,ground,ground,ground,,,,,,,uground,uground,uground,uground,,,,,box,,,,,,,,,,wall
 wall,uground,uground,uground,uground,uground,ground,ground,,,,,,,,,,,,ground,ground,ground,uhalfground,uhalfground,,downSwitch,,,,,wall
@@ -13,7 +13,7 @@ wall,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,wall
 wall,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,wall
 wall,yPlatform,yPlatform,,,ylever,,,,,,,,,,,,,,,,,,,,,,,,,wall
 wall,ground,ground,ground,ground,ground,ground,ground,ground,dhalfground,dhalfground,,,,,,,,,,,,,,,,,,,,wall
-wall,uground,uground,uground,uground,uground,uground,uground,uground,uground,uground,ground,ground,ground,Lgreenwater,greenwater,Rgreenwater,ground,ground,ground,Lgreenwater,greenwater,Rgreenwater,ground,ground,ground,,,,,wall
+wall,uground,uground,uground,uground,uground,uground,uground,uground,uground,uground,ground,ground,ground,Lgreenwater,greenwater,Rgreenwater,ground,ground,ground,Lgreenwater,greenwater,Rgreenwater,ground,ground,ground,ground,,,,wall
 wall,player1,,,,,,,,,,,,,,,,,,,,,,,,,,,ground,ground,wall
 wall,mhalfground,mhalfground,mhalfground,mhalfground,mhalfground,mhalfground,,,,blueGem,,,,,,,redGem,,,,,,,,,,ground,ground,uground,wall
 wall,player2,,,,,,,,,,,,,,,,,,,,,,,dhalfground,dhalfground,ground,ground,uground,uground,wall
