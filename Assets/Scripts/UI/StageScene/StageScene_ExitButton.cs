@@ -6,10 +6,24 @@ using UnityEngine.UI;
 public class StageScene_ExitButton : MonoBehaviour
 {
     private Button exitButton;
+    [SerializeField] private AudioClip clickSound;
+    private AudioSource audioSource;
 
     void Start()
     {
         exitButton = GetComponent<Button>();
-        exitButton.onClick.AddListener(SceneController.Instance.LoadTitleScene);
+        audioSource = gameObject.AddComponent<AudioSource>();
+        exitButton.onClick.AddListener(OnExitButtonClick);
+    }
+
+    private void OnExitButtonClick()
+    {
+        PlayClickSound(); 
+        SceneController.Instance.LoadTitleScene();
+    }
+
+    private void PlayClickSound()
+    {
+        audioSource.PlayOneShot(clickSound);
     }
 }

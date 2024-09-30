@@ -5,11 +5,26 @@ using UnityEngine.UI;
 
 public class Stage1 : MonoBehaviour
 {
-    private Button exitButton;
+    private Button stage1Button;
+    [SerializeField] private AudioClip clickSound;
+    private AudioSource audioSource;
 
     void Start()
     {
-        exitButton = GetComponent<Button>();
-        exitButton.onClick.AddListener(SceneController.Instance.LoadGameScene);
+        stage1Button = GetComponent<Button>();
+        audioSource = gameObject.AddComponent<AudioSource>();
+        stage1Button.onClick.AddListener(OnStageButtonClick);
+    }
+
+    private void OnStageButtonClick()
+    {
+        PlayClickSound(); 
+        SceneController.Instance.LoadGameScene();
+        AudioManager.Instance.PlayBGM();
+    }
+
+    private void PlayClickSound()
+    {
+        audioSource.PlayOneShot(clickSound); 
     }
 }

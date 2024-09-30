@@ -42,7 +42,11 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        if (curState == GameState.Ready && Input.anyKeyDown)
+        if (curState == GameState.Ready)
+        {
+            GameReady();
+        }
+        if (curState == GameState.Running)
         {
             GameStart();
         }
@@ -64,6 +68,11 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(1.5f);
         SceneController.Instance.LoadStageScene();
 
+    }
+
+    public void GameReady()
+    {
+        curState = GameState.Ready;
     }
 
     public void GameStart()

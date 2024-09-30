@@ -27,22 +27,52 @@ public class SceneController : MonoBehaviour
 
     public void QuitScene()
     {
+        StartCoroutine(LoadQuitSceneRoutine());
+    }
+
+    IEnumerator LoadQuitSceneRoutine()
+    {
+        yield return new WaitForSeconds(0.1f);
         Application.Quit();
         UnityEditor.EditorApplication.isPlaying = false;
     }
 
     public void LoadStageScene()
     {
+        StartCoroutine(LoadStageSceneRoutine());
+    }
+
+    IEnumerator LoadStageSceneRoutine()
+    {
+        yield return new WaitForSeconds(0.1f);
         LoadScene("StageScene");
+        GameManager.Instance.GameReady();
+        AudioManager.Instance.StopBGM();
     }
 
     public void LoadTitleScene()
     {
+        StartCoroutine (LoadTitleSceneRoutine());
+    }
+
+    IEnumerator LoadTitleSceneRoutine()
+    {
+        yield return new WaitForSeconds(0.1f);
         LoadScene("TitleScene");
+        GameManager.Instance.GameReady();
+        AudioManager.Instance.StopBGM();
     }
 
     public void LoadGameScene()
     {
+        StartCoroutine(LoadGameSceneRoutine());
+    }
+
+    IEnumerator LoadGameSceneRoutine()
+    {
+        yield return new WaitForSeconds(0.1f);
         LoadScene("GameScene");
+        GameManager.Instance.GameStart();
+        AudioManager.Instance.PlayBGM();
     }
 }

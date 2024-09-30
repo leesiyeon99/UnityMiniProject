@@ -21,14 +21,10 @@ public class AudioManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
-    private void Start()
-    {
-        PlayBGM(bgmClip);
-    }
 
-    public void PlayBGM(AudioClip clip)
+
+    public void PlayBGM()
     {
-        bgm.clip= clip;
         bgm.Play();
     }
 
