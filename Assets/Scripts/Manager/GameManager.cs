@@ -67,6 +67,7 @@ public class GameManager : MonoBehaviour
     {
         yield return new WaitForSeconds(1.5f);
         SceneController.Instance.LoadStageScene();
+        AudioManager.Instance.PlayBGM2();
 
     }
 

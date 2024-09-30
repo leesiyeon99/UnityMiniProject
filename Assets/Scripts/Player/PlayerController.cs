@@ -23,6 +23,9 @@ public class PlayerController : MonoBehaviour
     private int jumpHesh = Animator.StringToHash("Jump");
     private int fallHesh = Animator.StringToHash("Fall");
 
+    AudioSource audioSource;
+    [SerializeField] AudioClip getGemClip;
+
 
     private void Awake()
     {
@@ -34,6 +37,7 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
+        audioSource = gameObject.AddComponent<AudioSource>();
         states[(int)curState].Enter();
         animator.Play(idleHesh);
     }
@@ -202,12 +206,14 @@ public class PlayerController : MonoBehaviour
             collision.gameObject.SetActive(false);
             RedGemScoreUI redGemScoreUI = FindObjectOfType<RedGemScoreUI>();
             redGemScoreUI.Score();
+            audioSource.PlayOneShot(getGemClip);
         }
         if (collision.gameObject.CompareTag("BlueGem") && this.gameObject.tag == "Player2")
         {
             collision.gameObject.SetActive(false);
             BlueGemScoreUI blueGemScoreUI = FindObjectOfType<BlueGemScoreUI>();
             blueGemScoreUI.Score();
+            audioSource.PlayOneShot(getGemClip);
         }
     }
 }

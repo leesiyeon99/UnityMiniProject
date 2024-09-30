@@ -47,13 +47,14 @@ public class SceneController : MonoBehaviour
         yield return new WaitForSeconds(0.1f);
         LoadScene("StageScene");
         GameManager.Instance.GameReady();
-        AudioManager.Instance.StopBGM();
+        AudioManager.Instance.StopBGM(); 
     }
 
     public void LoadTitleScene()
     {
         StartCoroutine (LoadTitleSceneRoutine());
     }
+
 
     IEnumerator LoadTitleSceneRoutine()
     {
@@ -74,5 +75,6 @@ public class SceneController : MonoBehaviour
         LoadScene("GameScene");
         GameManager.Instance.GameStart();
         AudioManager.Instance.PlayBGM();
+        AudioManager.Instance.StopBGM2();
     }
 }

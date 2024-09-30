@@ -5,9 +5,11 @@ public class AudioManager : MonoBehaviour
     public static AudioManager Instance { get; private set; }
 
     [SerializeField] AudioSource bgm;
+    [SerializeField] AudioSource bgm2;
     [SerializeField] AudioSource sfx;
 
     [SerializeField] AudioClip bgmClip;
+    [SerializeField] AudioClip bgm2Clip;
     [SerializeField] AudioClip[] afxClips;
     private void Awake()
     {
@@ -28,27 +30,26 @@ public class AudioManager : MonoBehaviour
         bgm.Play();
     }
 
+    public void PlayBGM2()
+    {
+        bgm2.Play();
+    }
+
     public void StopBGM()
     {
         if (!bgm.isPlaying) { return; }
         bgm.Stop();
     }
 
+    public void StopBGM2()
+    {
+        if (!bgm.isPlaying) { return; }
+        bgm2.Stop();
+    }
+
     public void PlaySFX(int index)
     {
         sfx.clip= afxClips[index] ;
         sfx.Play();
-    }
-
-    public void OnButton() // 플레이어가 점프할때 버튼도 작동하는 문제발생
-    {
-        if (bgm.isPlaying)
-        {
-            bgm.Stop();
-        }
-        else
-        {
-            bgm.Play();
-        }
     }
 }

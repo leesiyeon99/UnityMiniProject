@@ -18,9 +18,9 @@ public class GameScene_ExitButton : MonoBehaviour
 
     private void OnExitButtonClick()
     {
-        AudioManager.Instance.StopBGM();
         PlayClickSound(); 
-        SceneController.Instance.LoadStageScene(); 
+        SceneController.Instance.LoadStageScene();
+        AudioManager.Instance.PlayBGM2();
     }
 
     private void PlayClickSound()

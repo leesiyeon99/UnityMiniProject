@@ -154,8 +154,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bgm: {fileID: 31590451}
+  bgm2: {fileID: 31590450}
   sfx: {fileID: 31590450}
   bgmClip: {fileID: 8300000, guid: 0ad591428b0c18c4da51fe3bf98dbc63, type: 3}
+  bgm2Clip: {fileID: 8300000, guid: 06906d718be5b6a4cb2df8732bf39832, type: 3}
   afxClips:
   - {fileID: 8300000, guid: 2c5292ba5cf254919a6b9e2b18e04f49, type: 3}
 --- !u!4 &31590449
@@ -183,7 +185,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 06906d718be5b6a4cb2df8732bf39832, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
