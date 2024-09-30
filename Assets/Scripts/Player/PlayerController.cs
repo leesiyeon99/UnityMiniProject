@@ -199,15 +199,15 @@ public class PlayerController : MonoBehaviour
         }
         if (collision.gameObject.CompareTag("RedGem") && this.gameObject.tag == "Player1")
         {
-            Debug.Log("빨간보석 +1");
             collision.gameObject.SetActive(false);
-            GameManager.Instance.RedGemScore();
+            RedGemScoreUI redGemScoreUI = FindObjectOfType<RedGemScoreUI>();
+            redGemScoreUI.Score();
         }
         if (collision.gameObject.CompareTag("BlueGem") && this.gameObject.tag == "Player2")
         {
-            Debug.Log("파란보석 +1");
             collision.gameObject.SetActive(false);
-            GameManager.Instance.BlueGemScore();
+            BlueGemScoreUI blueGemScoreUI = FindObjectOfType<BlueGemScoreUI>();
+            blueGemScoreUI.Score();
         }
     }
 }

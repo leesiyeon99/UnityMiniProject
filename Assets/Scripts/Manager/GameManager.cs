@@ -1,6 +1,7 @@
 using System.Collections;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -11,15 +12,14 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance { get; private set; }
 
     [SerializeField] GameState curState;
-    [SerializeField] TextMeshProUGUI redGemScore;
-    [SerializeField] TextMeshProUGUI blueGemScore;
-    [SerializeField] Image clearImage;
 
     private bool player1Goal = false;
     private bool player2Goal = false;
 
     int redGemCount = 0;
     int blueGemCount = 0;
+
+    public UnityEvent OnGameClear;
 
     private void Awake()
     {
@@ -37,7 +37,6 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         curState = GameState.Ready;
-        clearImage.gameObject.SetActive(false);
     }
 
 
@@ -54,12 +53,10 @@ public class GameManager : MonoBehaviour
         }
         else if (curState == GameState.GameClear)
         {
-            clearImage.gameObject.SetActive(true);
             StartCoroutine(GameClearRoutine());
             curState = GameState.Ready;
         }
 
-        Score();
     }
 
     IEnumerator GameClearRoutine()
@@ -67,12 +64,6 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(1.5f);
         SceneController.Instance.LoadStageScene();
 
-    }
-    private void Score()
-    { 
-        if (redGemScore == null || blueGemScore == null ) return;
-        redGemScore.text = $"{redGemCount}";
-        blueGemScore.text = $"{blueGemCount}";
     }
 
     public void GameStart()
@@ -88,6 +79,7 @@ public class GameManager : MonoBehaviour
     public void GameClear()
     {
         curState = GameState.GameClear;
+        OnGameClear.Invoke();
     }
 
     public int RedGemScore()
