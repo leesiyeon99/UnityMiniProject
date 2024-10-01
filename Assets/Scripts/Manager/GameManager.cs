@@ -93,6 +93,11 @@ public class GameManager : MonoBehaviour
     {
         curState = GameState.GameClear;
         OnGameClear.Invoke();
+        ReStart();
+    }
+
+    public void ReStart()
+    {
         player1Goal = false;
         player2Goal = false;
         redGemCount = 0;
@@ -153,6 +158,7 @@ public class GameManager : MonoBehaviour
 
     public void PlayerDied()
     {
+        ReStart();
         SceneController.Instance.LoadGameScene(currentStageIndex);
     }
     private void OnEnable()
