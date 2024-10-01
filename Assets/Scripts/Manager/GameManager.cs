@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using TMPro;
 using UnityEngine;
@@ -20,6 +21,8 @@ public class GameManager : MonoBehaviour
     int blueGemCount = 0;
 
     public UnityEvent OnGameClear;
+
+    [SerializeField] int currentStageIndex = 0;
 
     private void Awake()
     {
@@ -52,7 +55,7 @@ public class GameManager : MonoBehaviour
         }
         else if (curState == GameState.GameOver)
         {
-            SceneManager.LoadScene("GameScene");
+            PlayerDied();
             curState = GameState.Running;
         }
         else if (curState == GameState.GameClear)
@@ -90,6 +93,10 @@ public class GameManager : MonoBehaviour
     {
         curState = GameState.GameClear;
         OnGameClear.Invoke();
+        player1Goal = false;
+        player2Goal = false;
+        redGemCount = 0;
+        blueGemCount = 0;
     }
 
     public int RedGemScore()
@@ -119,9 +126,55 @@ public class GameManager : MonoBehaviour
     private void CheckGameClear()
     {
         // 플레이어의 각각에 맞는 색 위의 문과 충돌 중 && 스테이지에 있는 모든 보석 다 먹기
-        if (player1Goal && player2Goal && redGemCount == 3 && blueGemCount == 3)
+        Debug.Log($"Player1Goal: {player1Goal}, Player2Goal: {player2Goal}, RedGems: {redGemCount}, BlueGems: {blueGemCount}");
+
+        if (player1Goal && player2Goal)
         {
-            GameClear();
+            if (redGemCount >= 3 && blueGemCount >= 3)
+            {
+                GameClear();
+                StartCoroutine(stageupdata());
+            }
+        }
+    }
+
+    IEnumerator stageupdata()
+    {
+        yield return new WaitForSeconds(2);
+
+        StageManager stageManager = FindObjectOfType<StageManager>();
+
+        if (stageManager != null)
+        {
+            stageManager.ClearStage(currentStageIndex-1);
+            Debug.Log("StageClear");
+        }
+    }
+
+    public void PlayerDied()
+    {
+        SceneController.Instance.LoadGameScene(currentStageIndex);
+    }
+    private void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    private void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    // 플레이어가 죽었을 때 있던 씬에서 재로딩되도록 씬의 인덱스 저장해서 사용
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        if (scene.name == "GameScene1")
+        {
+            currentStageIndex = 1;
+        }
+        else if (scene.name == "GameScene2")
+        {
+            currentStageIndex = 2;
         }
     }
 }

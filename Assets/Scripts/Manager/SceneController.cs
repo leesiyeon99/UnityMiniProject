@@ -64,15 +64,16 @@ public class SceneController : MonoBehaviour
         AudioManager.Instance.StopBGM();
     }
 
-    public void LoadGameScene()
+    public void LoadGameScene(int stageIndex)
     {
-        StartCoroutine(LoadGameSceneRoutine());
+        StartCoroutine(LoadGameSceneRoutine(stageIndex));
     }
 
-    IEnumerator LoadGameSceneRoutine()
+    IEnumerator LoadGameSceneRoutine(int stageIndex)
     {
         yield return new WaitForSeconds(0.1f);
-        LoadScene("GameScene");
+        string sceneName = "GameScene" + stageIndex;
+        SceneManager.LoadScene(sceneName);
         GameManager.Instance.GameStart();
         AudioManager.Instance.PlayBGM();
         AudioManager.Instance.StopBGM2();

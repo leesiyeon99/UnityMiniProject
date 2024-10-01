@@ -1,9 +1,11 @@
+using System.Collections;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class ClearImageUI : MonoBehaviour
 {
-    private Image clearImage;
+    [SerializeField] Image clearImage;
     [SerializeField] private AudioClip clearSound;
     private AudioSource audioSource;
 
@@ -16,7 +18,6 @@ public class ClearImageUI : MonoBehaviour
 
         GameManager.Instance.OnGameClear.AddListener(Show);
     }
-
     public void Show()
     {
         clearImage.gameObject.SetActive(true);

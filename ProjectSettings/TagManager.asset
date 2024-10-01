@@ -26,6 +26,7 @@ TagManager:
   - HitBox
   - RedGoal
   - BlueGoal
+  - Stage
   layers:
   - Default
   - TransparentFX

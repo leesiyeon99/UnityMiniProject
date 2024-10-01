@@ -3,23 +3,23 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Stage1 : MonoBehaviour
+public class Stage2 : MonoBehaviour
 {
-    private Button stage1Button;
+    private Button stage2Button;
     [SerializeField] private AudioClip clickSound;
     private AudioSource audioSource;
 
     void Start()
     {
-        stage1Button = GetComponent<Button>();
+        stage2Button = GetComponent<Button>();
         audioSource = gameObject.AddComponent<AudioSource>();
-        stage1Button.onClick.AddListener(OnStageButtonClick);
+        stage2Button.onClick.AddListener(OnStageButtonClick);
     }
 
     private void OnStageButtonClick()
     {
         PlayClickSound(); 
-        SceneController.Instance.LoadGameScene(1);
+        SceneController.Instance.LoadGameScene(2);
         AudioManager.Instance.PlayBGM();
     }
 
