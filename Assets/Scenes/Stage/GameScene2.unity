@@ -457,6 +457,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10ed5ebf9821fb346b0e6dc64b083948, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  clearImage: {fileID: 0}
   clearSound: {fileID: 8300000, guid: 89e6bc608da7b47d4914f3d9c2484e48, type: 3}
 --- !u!82 &277383202
 AudioSource:
@@ -613,7 +614,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -1270527471, guid: 8049ea91a9d5fca4dab4024c0915dbe6, type: 3}
-  m_Color: {r: 0.6528301, g: 0.39292982, b: 0.39292982, a: 1}
+  m_Color: {r: 0.4943396, g: 0.41319326, b: 0.41319326, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -1207,6 +1208,7 @@ MonoBehaviour:
   OnGameClear:
     m_PersistentCalls:
       m_Calls: []
+  currentStageIndex: 0
 --- !u!1 &935614099
 GameObject:
   m_ObjectHideFlags: 0
@@ -1670,7 +1672,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a96742a8166039140a9d9fbb883d789a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  csvFile: {fileID: 4900000, guid: 0dfbd49956905bd41a468fd599b259ca, type: 3}
+  csvFile: {fileID: 4900000, guid: d69e9bd2526a4de45abbca8077c55d9c, type: 3}
   wall: {fileID: 3421108211922782166, guid: c5ec31f15b8270849b7e05163ff4d2a2, type: 3}
   ground: {fileID: 2210092736477759195, guid: 0ac8e197649c2c442ad6468e55e00d54, type: 3}
   underGround: {fileID: 3539276205037682189, guid: c6c56462f3df8124da4e888e18d93c74, type: 3}
@@ -1686,6 +1688,15 @@ MonoBehaviour:
   lGreenWater: {fileID: 2750003772200712151, guid: b2e44910073c20540b6a4e38d17a632b, type: 3}
   greenWater: {fileID: 8634378079637833015, guid: 59f1f5710e767354382b5fd4a273deef, type: 3}
   rGreenWater: {fileID: 797265354228779541, guid: 51a36f595cb44eb42b0d2f34cc334c99, type: 3}
+  hlRedWater: {fileID: 7112661014062690164, guid: d8b63e71c5c47ff4eb45b9c2d3fa5887, type: 3}
+  hredWater: {fileID: 2354728561325135338, guid: 89db80456a4051a4c80e7c8cb5eed21e, type: 3}
+  hrRedWater: {fileID: 915234594567114921, guid: 1d2e3392cda03f443b5a1bf3280956e2, type: 3}
+  hlBlueWater: {fileID: 6574043229116527558, guid: 1c0d714350fdb1748b711fe1a9a4f80a, type: 3}
+  hblueWater: {fileID: 3412357715523168442, guid: 36c0419f7f73a9e44ab52b1cc0edc61f, type: 3}
+  hrBlueWater: {fileID: 5636497433464786433, guid: 7c7b0104ca47dee409fd799b236ea6f4, type: 3}
+  hlGreenWater: {fileID: 3057222903932102582, guid: e336e3ec8fb68124881f605e884102e3, type: 3}
+  hgreenWater: {fileID: 6292293045011379784, guid: bed5a9872d0fe754283c0b6a2701c340, type: 3}
+  hrGreenWater: {fileID: 9004747368926322766, guid: 193f4556f4e04f74cafaa55ffb04efb1, type: 3}
   player1: {fileID: 7329534070304524934, guid: 5de895181a705224da44f8d80863647a, type: 3}
   player2: {fileID: 2966462998197243063, guid: 6805cd68f6398ba4884d6b404553f27b, type: 3}
   blever: {fileID: 9024238537004048810, guid: 599d91224498b064f9a6fb41faf50f45, type: 3}
@@ -1697,6 +1708,7 @@ MonoBehaviour:
   downSwitch: {fileID: 1712971595969856427, guid: ce99c68fd26a8114f964ccce3e9e50b3, type: 3}
   downPlatform: {fileID: 9150008977061171958, guid: 6b57967d588098542993ee0f8499c715, type: 3}
   box: {fileID: 6572497358573712225, guid: bbfb5f766ba91ea4fa1549d1a56fa09e, type: 3}
+  chain: {fileID: 4769239430341598746, guid: cbf367f28a2c223419af5f55c369f780, type: 3}
   blueGem: {fileID: 5322311550532608336, guid: f79c9f1c7ea5f7343805de1f63188ead, type: 3}
   redGem: {fileID: 4460526311775382368, guid: cec822a550966db4580e32e1e84a2a7a, type: 3}
   redGoal: {fileID: 8351276497334275357, guid: d0b3e65a39f42804fa191fbf17a4448c, type: 3}

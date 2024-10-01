@@ -33,7 +33,7 @@ public class Switch : MonoBehaviour
             GameObject downPlatform = downPlatforms[i];
             Vector3 targetPosition = originalPositions[i] - new Vector3(0, moveDistance, 0);
 
-            if (activeSwitchCount > 0) 
+            if (activeSwitchCount > 0)
             {
                 downPlatform.transform.position = Vector3.Lerp(downPlatform.transform.position, targetPosition, moveSpeed * Time.deltaTime);
             }
@@ -46,27 +46,21 @@ public class Switch : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player1") || collision.CompareTag("Player2") || collision.CompareTag("Box"))
+        if ((collision.CompareTag("Player1") || collision.CompareTag("Player2") || collision.CompareTag("Box")) && !isPlayerOnSwitch)
         {
-            if (activeSwitchCount == 0) 
-            {
-                activeSwitchCount++;
-                isPlayerOnSwitch = true;
-                animator.Play("DownSwitch");
-            }
+            activeSwitchCount++;
+            isPlayerOnSwitch = true;
+            animator.Play("DownSwitch");
         }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player1") || collision.CompareTag("Player2") || collision.CompareTag("Box"))
+        if ((collision.CompareTag("Player1") || collision.CompareTag("Player2") || collision.CompareTag("Box")) && isPlayerOnSwitch)
         {
-            if (activeSwitchCount > 0) 
-            {
-                activeSwitchCount--;
-                isPlayerOnSwitch = false;
-                animator.Play("SwitchIdle");
-            }
+            activeSwitchCount--;
+            isPlayerOnSwitch = false;
+            animator.Play("SwitchIdle");
         }
     }
 }

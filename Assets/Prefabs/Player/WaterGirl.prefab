@@ -145,7 +145,7 @@ MonoBehaviour:
   animator: {fileID: 4289387993104038409}
   moveSpeed: 6
   maxMoveSpeed: 7
-  jumpPower: 7
+  jumpPower: 9
   maxFallSpeed: 25
   isGrounded: 0
   canMove: 0

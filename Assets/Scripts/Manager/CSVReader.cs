@@ -24,6 +24,17 @@ public class CSVReader : MonoBehaviour
     public GameObject greenWater; // 초록 물
     public GameObject rGreenWater; // 오른쪽 초록 물 
 
+    [Header("HalfWaterGrounds")]
+    public GameObject hlRedWater; // 왼쪽 빨간 물 
+    public GameObject hredWater; // 빨간 물 
+    public GameObject hrRedWater; // 오른쪽 빨간 물 
+    public GameObject hlBlueWater; // 왼쪽 파란 물
+    public GameObject hblueWater; // 파란 물
+    public GameObject hrBlueWater; // 오른쪽 파란 물 
+    public GameObject hlGreenWater; // 왼쪽 초록 물 
+    public GameObject hgreenWater; // 초록 물
+    public GameObject hrGreenWater; // 오른쪽 초록 물 
+
     [Header("Players")]
     public GameObject player1; // 플레이어1
     public GameObject player2; // 플레이어2
@@ -38,6 +49,7 @@ public class CSVReader : MonoBehaviour
     public GameObject downSwitch; //누르면 아래로 움직이는 바닥 스위치
     public GameObject downPlatform; //누르면 아래로 움직이는 바닥
     public GameObject box;
+    public GameObject chain;
 
     [Header("Gems")]
     public GameObject blueGem;
@@ -89,6 +101,16 @@ public class CSVReader : MonoBehaviour
             { "box", box },
             { "redGoal", redGoal },
             { "blueGoal", blueGoal },
+            { "hlRedWater", hlRedWater },
+            { "hredWater", hredWater },
+            { "hrRedWater", hrRedWater },
+            { "hlBlueWater", hlBlueWater },
+            { "hblueWater", hblueWater },
+            { "hrBlueWater", hrBlueWater },
+            { "hlGreenWater", hlGreenWater },
+            { "hgreenWater", hgreenWater },
+            { "hrGreenWater", hrGreenWater },
+            { "chain", chain },
         };
     }
 
