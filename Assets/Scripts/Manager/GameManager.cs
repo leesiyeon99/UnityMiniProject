@@ -182,5 +182,9 @@ public class GameManager : MonoBehaviour
         {
             currentStageIndex = 2;
         }
+        else if (scene.name == "GameScene3")
+        {
+            currentStageIndex = 3;
+        }
     }
 }

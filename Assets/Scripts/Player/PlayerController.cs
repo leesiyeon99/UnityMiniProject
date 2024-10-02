@@ -215,5 +215,10 @@ public class PlayerController : MonoBehaviour
             blueGemScoreUI.Score();
             audioSource.PlayOneShot(getGemClip);
         }
+        if (collision.gameObject.CompareTag("Spike") && (this.gameObject.tag == "Player2" || this.gameObject.tag == "Player1"))
+        {
+            GameManager.Instance.GameOver();
+            this.gameObject.SetActive(false);
+        }
     }
 }

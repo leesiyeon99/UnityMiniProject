@@ -28,6 +28,7 @@ TagManager:
   - BlueGoal
   - Stage
   - DownAttack
+  - Spike
   layers:
   - Default
   - TransparentFX

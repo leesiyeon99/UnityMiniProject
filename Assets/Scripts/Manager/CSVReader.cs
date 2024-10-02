@@ -12,6 +12,8 @@ public class CSVReader : MonoBehaviour
     public GameObject dHalfGround; // ¾Æ·¡ ¹Ý ¹Ù´Ú
     public GameObject uHalfGround; // À§ ¹Ý ¹Ù´Ú
     public GameObject mHalfGround; // °¡¿îµ¥ ¹Ý ¹Ù´Ú
+    public GameObject leftSlope;
+    public GameObject rightSlope;
 
     [Header("WaterGrounds")]
     public GameObject lRedWater; // ¿ÞÂÊ »¡°£ ¹° 
@@ -52,6 +54,8 @@ public class CSVReader : MonoBehaviour
     public GameObject chain;
     public GameObject downAttackMonster;
     public GameObject train;
+    public GameObject fan;
+    public GameObject spike;
 
     [Header("Gems")]
     public GameObject blueGem;
@@ -115,6 +119,10 @@ public class CSVReader : MonoBehaviour
             { "chain", chain },
             { "downAttackMonster", downAttackMonster },
             { "train", train },
+            { "leftSlope", leftSlope },
+            { "rightSlope", rightSlope },
+            { "fan", fan },
+            { "spike", spike },
         };
     }
 

@@ -33,6 +33,7 @@ public class StageManager : MonoBehaviour
             new StageData { stageIndex = 0, isCleared = false },
             new StageData { stageIndex = 1, isCleared = false },
             new StageData { stageIndex = 2, isCleared = false },
+            new StageData { stageIndex = 3, isCleared = false },
         };
         foreach (var stage in stages)
         {
