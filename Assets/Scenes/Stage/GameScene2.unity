@@ -632,7 +632,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 486462710}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 15.4295, y: -8.3811, z: 5.28}
+  m_LocalPosition: {x: 15.4, y: -8.4, z: 5.28}
   m_LocalScale: {x: 138.4017, y: 83.04292, z: 0.2516759}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -1709,6 +1709,8 @@ MonoBehaviour:
   downPlatform: {fileID: 9150008977061171958, guid: 6b57967d588098542993ee0f8499c715, type: 3}
   box: {fileID: 6572497358573712225, guid: bbfb5f766ba91ea4fa1549d1a56fa09e, type: 3}
   chain: {fileID: 4769239430341598746, guid: cbf367f28a2c223419af5f55c369f780, type: 3}
+  downAttackMonster: {fileID: 2016939656063924502, guid: 260f94d9cf13f4347bf1d2bcffa1c456, type: 3}
+  train: {fileID: 1507714437077462642, guid: 5334e220d338d7b4494f0bd1ac009a40, type: 3}
   blueGem: {fileID: 5322311550532608336, guid: f79c9f1c7ea5f7343805de1f63188ead, type: 3}
   redGem: {fileID: 4460526311775382368, guid: cec822a550966db4580e32e1e84a2a7a, type: 3}
   redGoal: {fileID: 8351276497334275357, guid: d0b3e65a39f42804fa191fbf17a4448c, type: 3}

@@ -27,6 +27,7 @@ TagManager:
   - RedGoal
   - BlueGoal
   - Stage
+  - DownAttack
   layers:
   - Default
   - TransparentFX

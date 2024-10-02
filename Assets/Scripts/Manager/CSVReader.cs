@@ -50,6 +50,8 @@ public class CSVReader : MonoBehaviour
     public GameObject downPlatform; //누르면 아래로 움직이는 바닥
     public GameObject box;
     public GameObject chain;
+    public GameObject downAttackMonster;
+    public GameObject train;
 
     [Header("Gems")]
     public GameObject blueGem;
@@ -111,6 +113,8 @@ public class CSVReader : MonoBehaviour
             { "hgreenWater", hgreenWater },
             { "hrGreenWater", hrGreenWater },
             { "chain", chain },
+            { "downAttackMonster", downAttackMonster },
+            { "train", train },
         };
     }
 
