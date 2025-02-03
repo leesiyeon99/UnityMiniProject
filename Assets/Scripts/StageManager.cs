@@ -90,8 +90,8 @@ public class StageManager : MonoBehaviour
     {
         foreach (var stage in stages)
         {
-            stage.isCleared = false; 
-            stage.Save(); 
+            stage.isCleared = false;
+            stage.Save();
         }
     }
 }

@@ -18,7 +18,6 @@ public class SceneController : MonoBehaviour
             Instance = this;
             DontDestroyOnLoad(gameObject);
         }
-
     }
     public void LoadScene(string sceneName)
     {
@@ -34,7 +33,7 @@ public class SceneController : MonoBehaviour
     {
         yield return new WaitForSeconds(0.1f);
         Application.Quit();
-        UnityEditor.EditorApplication.isPlaying = false;
+       // UnityEditor.EditorApplication.isPlaying = false;
     }
 
     public void LoadStageScene()

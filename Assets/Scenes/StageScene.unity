@@ -2412,14 +2412,17 @@ MonoBehaviour:
   stages:
   - stageIndex: 0
     isCleared: 0
-  - stageIndex: 0
+  - stageIndex: 1
     isCleared: 0
-  - stageIndex: 0
+  - stageIndex: 2
+    isCleared: 0
+  - stageIndex: 3
     isCleared: 0
   buttons:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1384576392}
+  - {fileID: 2140178330}
+  - {fileID: 13876728}
+  - {fileID: 1817855916}
 --- !u!4 &2053375456
 Transform:
   m_ObjectHideFlags: 0
